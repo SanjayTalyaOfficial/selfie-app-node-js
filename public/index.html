@@ -9,13 +9,21 @@
     <script>
         if ('geolocation' in navigator) {
             console.log('geolocation available');
-            navigator.geolocation.getCurrentPosition(position => {
-                console.log(position);
+            navigator.geolocation.getCurrentPosition(position => { // this is to display the lat and long in the console
+                const lat = position.coords.latitude; //declare a constant and assign the argument
+                const lon = position.coords.longitude;
+                document.getElementById('latitude').textContent = lat;
+                document.getElementById('longitude').textContent = lon;
+                // console.log(position); 
             });
         } else {
             console.log('geolocation not available');
         }
     </script>
     <h1>Data selfie app</h1>
+    <p>
+        latitude: <span id="latitude"></span>&deg;<br />
+        longitude: <span id="longitude"></span>&deg;
+    </p>
 </body>
 </html>
